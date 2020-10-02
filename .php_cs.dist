@@ -1,0 +1,19 @@
+<?php
+
+$finder = PhpCsFixer\Finder::create()
+    ->in(__DIR__)
+    ->exclude('var')
+    ->exclude('docker')
+    ->exclude('migrations')
+;
+
+return PhpCsFixer\Config::create()
+    ->setRules([
+        '@Symfony' => true,
+        'array_syntax' => ['syntax' => 'short'],
+        'phpdoc_align' => false,
+        'concat_space' => false,
+        'yoda_style' => false,
+    ])
+    ->setFinder($finder)
+;

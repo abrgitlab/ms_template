@@ -1,0 +1,25 @@
+nelmio_api_doc:
+    documentation:
+        info:
+            title: Template for service
+            description: Just template
+            version: 0.1.0
+
+        components:
+            securitySchemes:
+                BackendKeyAuth:
+                    type: apiKey
+                    in: header
+                    name: Authorization
+
+        security:
+            - BackendKeyAuth: []
+
+    areas: # to filter documented areas
+        default:
+            path_patterns:
+                - ^/api/default(?!/doc(?:\.json)*$) # Accepts routes under /api except /api/doc
+
+        v1:
+            path_patterns:
+                - ^/api/v1(?!/doc(?:\.json)*$) # Accepts routes under /api/v1 except /api/v1/doc and /api/v1/doc.json
